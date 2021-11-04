@@ -1,0 +1,111 @@
+import pprint as p
+import statistics
+
+class Ping_group:
+
+    def __init__(self, domain):
+        """Creates a new Ping_group"""
+        self._domain = domain
+        self._pingDict = {}
+
+    @property
+    def domain(self):
+        return self._domain
+
+    @domain.setter
+    def domain(self, other):
+        raise ValueError('ERROR: You cannot change the domain namename of a PingGroup')
+
+    
+    def newPing(self, bytes, ip=0, ttl=0, time=0):
+        if bytes == 'timeout':
+            self._pingDict[len(self._pingDict)] = {'error': 'Request Timed Out', 'received': False }
+        else:
+            self._pingDict[len(self._pingDict)] = {'bytes': bytes, 'ip': ip, 'ttl': ttl, 'time': time, 'received': True }
+    
+    
+    def allPings(self):
+        return self._pingDict
+    
+    @property
+    def newPing(self):
+        return self._pingDict[len(_pingDict)-1]
+
+    @newPing.setter
+    def newPing(self, ls):
+        if ls[0] == 'timeout':
+            self._pingDict[len(self._pingDict)] = {'error': 'Request Timed Out', 'received': False }
+        else:
+            self._pingDict[len(self._pingDict)] = {'bytes': ls[0], 'ip': ls[1], 'ttl': ls[2], 'time': ls[3], 'received': True }
+
+    def packets_sent(self):
+        return len(self._pingDict)
+    
+    def packets_received(self):
+        pckts_rcvd = 0
+        for key, val in self._pingDict.items():
+            if val['received'] == True:
+                pckts_rcvd += 1
+        return pckts_rcvd
+
+    def packet_loss(self):
+        return (self.packets_sent() - self.packets_received())/len(self._pingDict)
+
+    def round_trip_min(self):
+        minList = []
+        for ping in self._pingDict:
+            if self._pingDict[ping]['received'] == True:
+                minList.append(self._pingDict[ping]['time'])
+        return min(minList)
+    
+    def round_trip_max(self):
+        maxList = []
+        for ping in self._pingDict:
+            if self._pingDict[ping]['received'] == True:
+                maxList.append(self._pingDict[ping]['time'])
+        return max(maxList)
+
+    def round_trip_avg(self):
+        avgList = []
+        for ping in self._pingDict:
+            if self._pingDict[ping]['received'] == True:
+                avgList.append(self._pingDict[ping]['time'])
+        avg = sum(avgList)/len(avgList)
+        return round(avg, 2)
+
+    def standard_deviation(self):
+        return round(statistics.stdev(self._pingDict), 2)
+
+    def stats(self):
+        return f'\n-- Ping Group stats for {self._domain} -- \n{self.packets_sent()} packets transmitted, {self.packets_received()} packets received,{self.packet_loss()*100}% packet loss \nround-trip min/avg/max/stddev = {self.round_trip_min()} / {self.round_trip_avg()} / {self.round_trip_max()} / {self.standard_deviation()}\n'
+
+    def __str__(self):
+        return f'Ping Group for: {self._domain}, with: {len(self._pingDict)} pings'
+
+    
+
+
+
+if __name__ == '__main__':
+
+
+    myPingGroup = Ping_group('google.com')
+
+    myPingGroup.newPing = [64, '142.250.80.78', 113, 19.062]
+    myPingGroup.newPing = [64, '142.250.80.78', 113, 20.833]
+    myPingGroup.newPing = ['timeout']
+    myPingGroup.newPing = [64, '142.250.80.78', 113, 40.350]
+    myPingGroup.newPing = [64, '142.250.80.78', 113, 19.224]
+
+    print(myPingGroup.domain)
+    # myPingGroup.domain = 'anything.com'
+    p.pprint(myPingGroup.allPings())
+    print(myPingGroup.packets_sent())
+    print(myPingGroup.packets_received())
+    print(myPingGroup.round_trip_min())
+    print(myPingGroup.round_trip_max())
+    print(myPingGroup.round_trip_avg())
+    print(myPingGroup.packet_loss())
+    print(myPingGroup.standard_deviation())
+    print(myPingGroup.stats())
+    print(myPingGroup)
