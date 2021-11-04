@@ -1,0 +1,23 @@
+PING bing.com (13.107.21.200): 56 data bytes
+64 bytes from 13.107.21.200: icmp_seq=0 ttl=112 time=42.258 ms
+64 bytes from 13.107.21.200: icmp_seq=1 ttl=112 time=37.429 ms
+64 bytes from 13.107.21.200: icmp_seq=2 ttl=112 time=43.208 ms
+64 bytes from 13.107.21.200: icmp_seq=3 ttl=112 time=39.691 ms
+64 bytes from 13.107.21.200: icmp_seq=4 ttl=112 time=38.430 ms
+64 bytes from 13.107.21.200: icmp_seq=5 ttl=112 time=40.453 ms
+64 bytes from 13.107.21.200: icmp_seq=6 ttl=112 time=41.894 ms
+64 bytes from 13.107.21.200: icmp_seq=7 ttl=112 time=40.752 ms
+64 bytes from 13.107.21.200: icmp_seq=8 ttl=112 time=41.829 ms
+64 bytes from 13.107.21.200: icmp_seq=9 ttl=112 time=38.513 ms
+64 bytes from 13.107.21.200: icmp_seq=10 ttl=112 time=37.227 ms
+64 bytes from 13.107.21.200: icmp_seq=11 ttl=112 time=37.917 ms
+64 bytes from 13.107.21.200: icmp_seq=12 ttl=112 time=39.324 ms
+64 bytes from 13.107.21.200: icmp_seq=13 ttl=112 time=52.018 ms
+64 bytes from 13.107.21.200: icmp_seq=14 ttl=112 time=40.967 ms
+64 bytes from 13.107.21.200: icmp_seq=15 ttl=112 time=41.582 ms
+64 bytes from 13.107.21.200: icmp_seq=16 ttl=112 time=40.484 ms
+64 bytes from 13.107.21.200: icmp_seq=17 ttl=112 time=41.237 ms
+64 bytes from 13.107.21.200: icmp_seq=18 ttl=112 time=50.273 ms
+64 bytes from 13.107.21.200: icmp_seq=19 ttl=112 time=45.212 ms
+64 bytes from 13.107.21.200: icmp_seq=20 ttl=112 time=37.734 ms
+64 bytes from 13.107.21.200: icmp_seq=21 ttl=112 time=37.220 ms
