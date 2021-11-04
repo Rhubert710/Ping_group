@@ -14,14 +14,14 @@ class Ping_group:
 
     @domain.setter
     def domain(self, other):
-        raise ValueError('ERROR: You cannot change the domain namename of a PingGroup')
+        raise ValueError('ERROR: You cannot change the domain name of a PingGroup')
 
     
-    def newPing(self, bytes, ip=0, ttl=0, time=0):
-        if bytes == 'timeout':
-            self._pingDict[len(self._pingDict)] = {'error': 'Request Timed Out', 'received': False }
-        else:
-            self._pingDict[len(self._pingDict)] = {'bytes': bytes, 'ip': ip, 'ttl': ttl, 'time': time, 'received': True }
+    #def newPing(self, bytes, ip=0, ttl=0, time=0):
+        #if bytes == 'timeout':
+            #self._pingDict[len(self._pingDict)] = {'error': 'Request Timed Out', 'received': False }
+        #else:
+            #self._pingDict[len(self._pingDict)] = {'bytes': bytes, 'ip': ip, 'ttl': ttl, 'time': time, 'received': True }
     
     
     def allPings(self):
